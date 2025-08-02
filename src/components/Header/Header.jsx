@@ -3,9 +3,10 @@ import React from 'react'
 import {Logo,Container,LogoutBtn} from "../index"
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-function Header() {
-  const authStatus = useSelector((state)=>state.status)
+export default function Header() {
+  const authStatus = useSelector((state)=>state.auth.status)
   const navigate = useNavigate();
   
   const navItems = [
@@ -25,7 +26,7 @@ function Header() {
       active:!authStatus
     },
     {
-      nam:"Add Post",
+      name:"Add Post",
       slug:"/add-post",
       active:authStatus
     },
@@ -73,4 +74,4 @@ function Header() {
   )
 }
 
-export default Header
+// export default Header
